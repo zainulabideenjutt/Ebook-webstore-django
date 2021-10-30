@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mt-4">
+    {% for E in eBooks %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+    <img src="{{ E.coverImage }}" class="card-img-top" alt="Book Image" style="height:200px;width:286px">
+    <div class="card-body">
+        <h5 class="card-title">{{ E.title }}</h5>
+            <p>
+                Price : $ {{ E.price }}
+            </p>
+        <form class="form-inline" action="cart_add_items/" method="post">
+            <button class="btn btn-primary" type="submit" name="book_id" value="{{ E.id }}">
+                Send to cart
+            </button>
+        </form>
+    </div>
+</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
